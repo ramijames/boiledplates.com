@@ -1,0 +1,3 @@
+<template>
+  Boiled Plates
+</template>

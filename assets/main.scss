@@ -1,0 +1,18 @@
+@import 'variables';
+
+/* Reset */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color: transparent;
+  transition: color, background-color 0.28s;
+}
+
+html, 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-main, sans-serif;
+}
