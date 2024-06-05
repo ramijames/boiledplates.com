@@ -6,7 +6,7 @@
     </nuxt-link>
     <section class="links">
       <nuxt-link to="/">Boilerplates</nuxt-link>
-      <nuxt-link to="/what-is-this">What is this?</nuxt-link>
+      <nuxt-link to="/what-is-a-boilerplate">What is a boilerplate?</nuxt-link>
       <nuxt-link to="/about">About</nuxt-link>
     </section>
     <Button text="Suggest" link="/add" type="small" />

@@ -23,7 +23,7 @@
   h1 {
     -webkit-text-fill-color: transparent;
     text-shadow: -1px -1px 0 hsla(0,0%,100%,.2), 1px 1px 0 rgba($black,.1);
-    background: linear-gradient(to bottom, $white 30%, rgba($blue,.9));
+    background: linear-gradient(to bottom, $blue-dark 0%, $blue 70%);
     background-clip: text;
     color: unset;
     letter-spacing: -.025em;
@@ -33,7 +33,7 @@
     max-width: 800px;
 
     .highlight {
-      color: $red;
+      color: $blue;
     }
   }
 }
