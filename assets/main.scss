@@ -15,4 +15,75 @@ body {
   margin: 0;
   padding: 0;
   font-family: $font-family-main, sans-serif;
+  background-color: $black;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-text-size-adjust: none;
+  text-rendering: optimizelegibility;
+  height: 100%;
+}
+
+.dark {
+  background-color: $black;
+  color: $white;
+  background: radial-gradient(circle at 50%, $black, $black 50%, rgba($blue,0.1) 75%, $black 100%);
+}
+
+.light {
+  background-color: $white;
+  color: $black;
+}
+
+/* Container */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-main, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: $font-size-max;
+}
+
+h2 {
+  font-size: $font-size-xl;
+}
+
+h3 {
+  font-size: $font-size-lg;
+}
+
+h4 {
+  font-size: $font-size-md;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: $font-size-sm;
+  font-weight: 500;
+}
+
+p {
+  font-size: $font-size-base;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+  transition: color 0.28s;
 }

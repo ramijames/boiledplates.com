@@ -1,35 +1,38 @@
 <template>
-  <nav class="mobile-nav-bar">
-    <div class="menu-switch">
-      <div 
+  <nav class="nav-bar">
+    <nuxt-link to="/" class="logo">
+      <img :src="'/bp-logo-' + `${currentTheme}` + '.svg'" alt="Boiled Plates Logo" />
+      Boiled Plates
+    </nuxt-link>
+    <section class="links">
+      <nuxt-link to="/">Boilerplates</nuxt-link>
+      <nuxt-link to="/what-is-this">What is this?</nuxt-link>
+      <nuxt-link to="/about">About</nuxt-link>
+    </section>
+    <Button text="Suggest" link="/add" type="small" />
+    <!-- <div class="menu-switch"> -->
+      <!-- <div 
         class="menu"
         :class="`${mobileMenuOpen}`"
         @click="toggleMenu"
-      ></div>
-      <!-- <img src="/logo-transparent.png" alt="Rami James" @click="toggleMenu" /> -->
-      <div class="bread-crumbs">
+      ></div> -->
+      <!-- <div class="bread-crumbs">
         <nuxt-link to="/" v-if="notHome">Home</nuxt-link>
         <nuxt-link to="/thoughts" v-if="!isThoughtsPage && isThoughtsSubPage">Thoughts</nuxt-link>
         <nuxt-link to="/products" v-if="!isProductsPage && isProductsSubPage">Products</nuxt-link>
         <div class="current" v-if="notHome">{{ routeName }}</div>
-      </div>
-    </div>
-    <ThemeSwitcher />
+      </div> -->
+    <!-- </div> -->
+    <!-- <ThemeSwitcher /> -->
   </nav>
-  <section class="mobile-nav-panel" :class="mobileMenuOpen ? 'open' : ''">
-    <section class="mobile-nav-panel-links">
+  <!-- <section class="mobile-nav-panel" :class="mobileMenuOpen ? 'open' : ''"> -->
+    <!-- <section class="mobile-nav-panel-links">
       <nuxt-link to="/" @click="closeMenu">Home</nuxt-link>
       <nuxt-link to="/products" @click="closeMenu">Recent Work</nuxt-link>
       <nuxt-link to="/thoughts" @click="closeMenu">Thoughts</nuxt-link>
       <nuxt-link to="/about" @click="closeMenu">About</nuxt-link>
-    </section>
-    <section class="mobile-nav-panel-contact">
-      <a href="https://github.com/ramijames"><img :src="`/github-${currentTheme}.svg`" alt="Github" /></a>
-      <a href="https://www.linkedin.com/in/rami-james/"><img :src="`/linkedin-${currentTheme}.svg`" alt="LinkedIn" /></a>
-      <a href="mailto:rami@ramijames.com"><img :src="`/mail-${currentTheme}.svg`" alt="Send Rami an email" /></a>
-      <a href="https://twitter.com/ramijames"><img :src="`/twitter-${currentTheme}.svg`" alt="Check out Rami's Twitter" /></a>
-    </section>
-  </section>
+    </section> -->
+  <!-- </section> -->
 </template>
 
 <script>
@@ -109,11 +112,61 @@ export default {
 
 @import './assets/variables';
 
-.mobile-nav-bar {
+.nav-bar {
   position: sticky;
   width: 100vw;
   top: 0;
   z-index: 10000;
+  padding: $spacing-sm $spacing-lg;
+  border-bottom: 1px solid rgba($black, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    height: 40px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $spacing-xs;
+    font-weight: 600;
+    text-decoration: none;
+    color: $white;
+    font-size: $font-size-lg;
+    font-family: $font-family-main, sans-serif;
+
+    @media screen and (max-width: 768px){
+      font-size: 0;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+    gap: $spacing-md;
+
+    a {
+      text-decoration: none;
+      color: $red;
+      font-size: $font-size-md;
+      font-family: $font-family-main, sans-serif;
+
+      &.router-link-exact-active {
+        color: $white;
+        border-bottom: 2px solid $red;
+      }
+    }
+  
+  }
+}
+
+.dark .nav-bar {
+  border-bottom: 1px solid rgba($white, 0.1);
 }
 
 /* Don't show nav-panel by default */
@@ -185,7 +238,7 @@ export default {
       width: 40px;
       height: 2px;
       backdrop-filter: blur(4px);
-      background: $blue;
+      background: $black;
       transform-origin: center;
       transition: all 0.24s ease-in-out;
 
@@ -202,7 +255,7 @@ export default {
       width: 40px;
       height: 2px;
       backdrop-filter: blur(4px);
-      background: $blue;
+      background: $black;
       transform-origin: center;
       transition: all 0.24s ease-in-out;
 
@@ -226,7 +279,7 @@ export default {
 
   img {
     width: auto;
-    height: 60px;
+    height: 40px;
 
     @media screen and (max-width: 768px){
       height: 40px;

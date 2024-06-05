@@ -1,3 +1,5 @@
 <template>
-  Boiled Plates
+  <Hero />
+  <Boilerplates />
+  <Footer />
 </template>
