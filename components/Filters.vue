@@ -22,43 +22,34 @@
       - 
      -->
      <section class="search">
-        <input type="text" placeholder="Search boilerplates">
+        <InputComponent type="text" variant="default" placeholder="Search boilerplates" />
      </section>
   </main>
 </template>
 
-<script setup>
+<script>
+import InputComponent from '/components/shared/InputComponent.vue';
 
+export default {
+  components: {
+    InputComponent
+  }
+}
 </script>
 
 <style scoped lang="scss">
-
-@import './assets/variables';
 
 #filters {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: $spacing-md 0;
+  padding:  0;
   text-align: center;
   width: 100%;
 
   .search {
     width: 80%;
-
-    input {
-      padding: $spacing-sm $spacing-md;
-      border-radius: $br-sm;
-      border: 1px solid rgba($white, 0.1);
-      color: $white;
-      background: transparent;
-      font-size: $font-size-md;
-      font-family: $font-family-main, sans-serif;
-      outline: none;
-      transition: all 0.12s ease-in-out;
-      width: 100%;
-    }
   }
 }
 
