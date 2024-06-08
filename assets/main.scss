@@ -21,7 +21,6 @@ body {
   text-rendering: optimizelegibility;
   height: 100%;
   background: $black radial-gradient(circle at 50% -200%, $black, $black 50%, rgba($blue,0.4) 75%, $black 100%);
-  color: $white;
 }
 
 .dark {
