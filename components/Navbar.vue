@@ -151,13 +151,13 @@ export default {
 
     a {
       text-decoration: none;
-      color: $red;
+      color: $blue;
       font-size: $font-size-md;
       font-family: $font-family-main, sans-serif;
 
       &.router-link-exact-active {
         color: $white;
-        border-bottom: 2px solid $red;
+        border-bottom: 2px solid $blue;
       }
     }
   

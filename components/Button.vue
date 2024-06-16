@@ -45,7 +45,7 @@ export default {
   border-radius: $br-sm;
   transition: all .06s ease-in-out;
   cursor:pointer;
-  background: $red;
+  background: $white;
   color:$black;
   text-decoration: none;
   font-family: $font-family-main, sans-serif;
@@ -67,12 +67,12 @@ export default {
   }
 
   &:hover {
-    background-color: lighten($blue, 10%);
+    background-color: lighten($white-light, 10%);
     transform: scale(1.03);
   }
 
   &:active {
-    background-color: darken($blue, 10%);
+    background-color: darken($white-dark, 10%);
     transform: scale(1);
   }
 }

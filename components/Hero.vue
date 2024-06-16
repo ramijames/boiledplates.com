@@ -3,15 +3,36 @@
       <img src="/bp-logo-dark.svg" alt="Boilerplate Logo" />
       <h2>Boiled Plates</h2>
       <h1 class="hero-title">Find the right boilerplate for you</h1>
-      <h3><span class="highlight">What does a boilerplate include?</span></h3>
+      <!-- <h3><span class="highlight">What does a boilerplate include?</span></h3> -->
       <ul class="hero-features">
-        <li>Front-end framework</li>
-        <li>Authentication</li>
-        <li>Database</li>
-        <li>Payment Processing</li>
-        <li>Email</li>
-        <li>SEO</li>
-        <li>Styles</li>
+        <li>
+          <img src="/hero/hero-front-end.svg" alt="Front-end">
+          <p>Front-end</p>
+        </li>
+        <li>
+          <img src="/hero/hero-auth.svg" alt="Auth">
+          <p>Auth</p>
+        </li>
+        <li>
+          <img src="/hero/hero-database.svg" alt="Database">
+          <p>Database</p>
+        </li>
+        <li>
+          <img src="/hero/hero-payment.svg" alt="Payment">
+          <p>Payment</p>
+        </li>
+        <li>
+          <img src="/hero/hero-email.svg" alt="Email">
+          <p>Email</p>
+        </li>
+        <li>
+          <img src="/hero/hero-seo.svg" alt="SEO">
+          <p>SEO</p>
+        </li>
+        <li>
+          <img src="/hero/hero-styles.svg" alt="Styles">
+          <p>Styles</p>
+        </li>
       </ul>
   </section>
 </template>
@@ -63,14 +84,15 @@
 
   h3 {
     color: $white;
-    font-size: $font-size-md;
+    font-size: $font-size-lg;
     font-family: $font-family-main, sans-serif;
     font-weight: 400;
     max-width: 800px;
     margin-top: $spacing-sm;
 
     .highlight {
-      color: $blue;
+      color: $white;
+      font-weight: 700;
     }
   }
 
@@ -88,6 +110,17 @@
       font-family: $font-family-main, sans-serif;
       font-weight: 400;
       list-style: none;
+
+      img {
+        width: 60px;
+        height: 60px;
+        opacity: 0.8;
+      }
+
+      p {
+        margin-top: $spacing-xs;
+        color: $blue-light;
+      }
     }
   }
 }
