@@ -74,9 +74,9 @@ export default {
 
 .hero {
   height: 0;
-  padding: 0; 
   overflow: hidden;
   opacity: 0;
+  padding: 0;
   transition: all 0.44s ease-in-out;
   transform: scale(.8);
   flex-shrink: 2;
@@ -85,6 +85,7 @@ export default {
     height: inherit;
     opacity: 1;
     transform: scale(1);
+    padding: $spacing-md;
   }
 }
 

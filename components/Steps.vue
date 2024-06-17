@@ -3,7 +3,7 @@
     <section id="steps">
       <template v-for="(step, index) in steps">
         <button class="single-step" :class="{ active: currentStep === index + 1 }" @click="updateCurrentStep(index + 1)">
-          <div class="icon">{{ step.icon }}</div>
+          <div class="state"><img :src="`/steps/` + step.stepState + `.svg`" alt=""></div>
           <div class="text">{{ step.text }}</div>
         </button>
         <svg v-if="index < steps.length - 1" width="13" height="20" viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,15 +22,24 @@ export default {
   setup() {
     const stepsStore = useStepsStore();
 
-    // TODO: Instead of these placeholder icons, we need an icon that defines state
-    // - current
-    // - completed
-    // - forward
-    const steps = [
-      { icon: '🚀', text: 'Choose a platform' },
-      { icon: '🔧', text: 'Select features' },
-      { icon: '🎁', text: 'Get suggestions' }
-    ];
+    const steps = computed(() => {
+      const stepsState = stepsStore.stepsState;
+      let steps = [
+        { 
+          text: 'Platforms',
+          stepState: stepsState.platform.completed ? 'complete' : (stepsStore.currentStep === 1 ? 'current' : 'forward'),
+        },
+        { 
+          text: 'Features',
+          stepState: stepsState.features.completed ? 'complete' : (stepsStore.currentStep === 2 ? 'current' : 'forward'),
+        },
+        { 
+          text: 'Suggestions',
+          stepState: stepsState.features.completed ? 'complete' : (stepsStore.currentStep === 2 ? 'current' : 'forward'),
+        }
+      ];
+      return steps;
+    });
 
     const updateCurrentStep = (step) => {
       stepsStore.updateCurrentStep(step);
@@ -68,7 +77,6 @@ export default {
   max-width: 400px;
   width: 100%;
   margin: 0 auto;
-  border-top: 2px solid rgba($black, 0.1);
 
   .single-step {
     display: flex;
@@ -78,22 +86,6 @@ export default {
     border: none;
     cursor: pointer;
     position: relative;
-
-    // &::after {
-    //   content: '';
-    //   display: block;
-    //   width: 12px;
-    //   height: 18px;
-    //   background: url('/steps/arrow.svg') no-repeat center;
-    //   right: -0.65rem;
-    //   top: 50%;
-    //   position: absolute;
-      
-    // }
-
-    // &:last-child::after {
-    //   display: none;
-    // }
 
     .icon {
       font-size: 2rem;

@@ -1,13 +1,15 @@
 <template>
   <section id="Platforms">
-    <button 
-      v-for="platform in platforms" 
-      :key="platform.name" 
-      @click="updatePlatformStep(platform.name)"
-    >
-      <img :src="platform.icon" alt="platform.name" />
-      <p>{{ platform.name }}</p>
-    </button>
+    <section class="button-set">
+      <button 
+        v-for="platform in platforms" 
+        :key="platform.name" 
+        @click="updatePlatformStep(platform.name)"
+      >
+        <img :src="platform.icon" alt="platform.name" />
+        <p>{{ platform.name }}</p>
+      </button>
+    </section>
   </section>
 </template>
 
@@ -39,21 +41,13 @@ export default {
   data() {
     return {
       platforms: [
-        { name: 'Web', icon: '/images/web.svg' },
-        { name: 'iOS', icon: '/images/ios.svg' },
-        { name: 'Android', icon: '/images/android.svg' },
-        { name: 'Desktop', icon: '/images/desktop.svg' }
+        { name: 'Web', icon: '/platform/web.svg' },
+        { name: 'iOS', icon: '/platform/ios.svg' },
+        { name: 'Android', icon: '/platform/android.svg' },
+        { name: 'Server', icon: '/platform/server.svg' }
       ]
     };
   }
-  // methods: {
-  //   selectPlatform(platform) {
-  //     // push the selected platform to the store
-  //     useStepsStore.updatePlatformStep(platform);
-
-  //     // this.$emit('update:modelValue', platform);
-  //   }
-  // }
 }
 
 </script>
@@ -63,17 +57,81 @@ export default {
 @import './assets/variables.scss';
 
 #Platforms {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  
   background-color: white;
-  padding: $spacing-md;
+  padding: $spacing-md $spacing-md 0 $spacing-md;
   border-radius: $br-xl $br-xl 0 0;
   width: 100%;
-  gap: $spacing-md;
   max-width: 800px;
   margin: 0 auto;
   height: 100%;
+
+  .button-set {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+
+    button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      padding: $spacing-xs;
+      cursor: pointer;
+      background: white;
+      border-radius: $br-md;
+
+      &:hover,
+      &:focus {
+        background: rgba($blue, 0.1);
+      }
+
+      &:active {
+        background: rgba($blue, 0.5);
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+
+      p {
+        margin: 0;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+
+  button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: $spacing-xs;
+    cursor: pointer;
+    background: white;
+    border-radius: $br-md;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: rgba($blue, 0.1);
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    p {
+      margin: 0;
+      font-size: $font-size-sm;
+    }
+  }
 }
 
 
