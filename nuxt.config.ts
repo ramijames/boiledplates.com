@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   ],
   googleFonts: {
     families: {
-      'Inter': [400, 600, 700, 900],
+      'Source Serif Pro': [400, 600, 700, 900],
       'Noto Sans': [400, 600, 700, 900],
     }
   }

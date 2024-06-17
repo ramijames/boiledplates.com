@@ -1,24 +1,15 @@
 <template>
-  <main class="default-layout">
-    <section class="default-main">
-      <!-- <Navbar /> -->
-      <NuxtPage />
-    </section>
+  <main class="layout">
+    <NuxtPage />
   </main>
 </template>
 
 <style>
 
-.default-layout {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
-
-.default-main {
+.layout {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  height: 100vh;
 }
 
 </style>
