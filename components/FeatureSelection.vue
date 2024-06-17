@@ -1,9 +1,7 @@
 <template>
-  <section class="header">
-    <h2>Which {{ platform }} features will you need?</h2>
-  </section>
-  <section id="boilerplate" class="content">
-    
+  
+  <section id="FeatureSelection" class="content">
+    test
   </section>
 </template>
 
@@ -12,3 +10,19 @@
 let platform = 'platform'
 
 </script>
+
+
+<style lang="scss" scoped>
+
+@import './assets/variables.scss';
+
+#FeatureSelection {
+  background-color: white;
+  border-radius: $br-xl $br-xl 0 0;
+  padding: $spacing-md;
+  width: 100%;
+  height: 100%;
+}
+
+
+</style>
