@@ -5,10 +5,10 @@
       <h2>Which platform do you want to support?</h2>
     </section>
     <section class="header" v-if="currentStep === 2">
-      <h2>Which {{ platform }} features will you need?</h2>
+      <h2>Which {{ selectedPlatform }} features will you need?</h2>
     </section>
     <section class="header" v-if="currentStep === 3">
-      <h2>Suggested Boilerplates for {{ platform }}</h2>
+      <h2>Suggested Boilerplates for {{ selectedPlatform }}</h2>
     </section>
     <section id="BoiledContent">
       <PlatformSelection v-if="currentStep === 1" v-model="selectedPlatform" />
@@ -31,20 +31,18 @@ export default {
   setup() {
     const stepsStore = useStepsStore();
 
+    // Pull the currently selected platform frmo the store
+    const selectedPlatform = computed(() => stepsStore.stepsState.platform.selected);
+
     return { 
-      currentStep: computed(() => stepsStore.currentStep)
+      currentStep: computed(() => stepsStore.currentStep),
+      selectedPlatform
     };
   },
   components: {
     PlatformSelection,
     FeatureSelection,
     SuggestionOutput
-  },
-  data() {
-    return {
-      selectedPlatform: null,
-      selectedFeatures: [],
-    };
   }
 }
 </script>

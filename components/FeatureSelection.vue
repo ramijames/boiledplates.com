@@ -22,6 +22,8 @@ let platform = 'platform'
   padding: $spacing-md;
   width: 100%;
   height: 100%;
+
+  
 }
 
 
