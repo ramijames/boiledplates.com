@@ -1,14 +1,10 @@
 <template>
   <main id="boiled">
     <Hero id="Hero" :class="currentStep=== 1 ? 'home' : ''" />
-    <section class="header" v-if="currentStep === 1">
-      <h2>Which platform do you want to support?</h2>
-    </section>
-    <section class="header" v-if="currentStep === 2">
-      <h2>Which {{ selectedPlatform }} features will you need?</h2>
-    </section>
-    <section class="header" v-if="currentStep === 3">
-      <h2>Suggested Boilerplates for {{ selectedPlatform }}</h2>
+    <section class="header" >
+      <h2 v-if="currentStep === 1">Which platform do you want to support?</h2>
+      <h2 v-if="currentStep === 2">Which {{ selectedPlatform }} features will you need?</h2>
+      <h2 v-if="currentStep === 3">Suggested Boilerplates for {{ selectedPlatform }}</h2>
     </section>
     <section id="BoiledContent">
       <PlatformSelection v-if="currentStep === 1" v-model="selectedPlatform" />
@@ -76,9 +72,10 @@ export default {
   height: 0;
   overflow: hidden;
   opacity: 0;
-  padding: 0;
-  transition: all 0.44s ease-in-out;
-  transform: scale(.8);
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: all .44s ease-in-out;
+  // transform: scale(.8);
   flex-shrink: 2;
 
   &.home {

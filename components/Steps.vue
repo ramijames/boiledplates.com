@@ -1,8 +1,15 @@
 <template>
-  <section id="steps-wrapper">
+  <section class="wrapper" v-if="currentStep !== 1">
+    <section id="StateButtons">
+      <button class="reset" @click="reset">Reset</button>
+      <button class="next" @click="next" v-if="currentStep !== 3">Next</button>
+    </section>
+  </section>
+  <section class="wrapper">
     <section id="steps">
       <template v-for="(step, index) in steps">
-        <button class="single-step" :class="{ active: currentStep === index + 1 }" @click="updateCurrentStep(index + 1)">
+        <!-- <button class="single-step" :class="{ active: currentStep === index + 1 }" @click="updateCurrentStep(index + 1)"> -->
+        <button class="single-step" :class="{ active: currentStep === index + 1, [step.stepState]: true  }">
           <div class="state"><img :src="`/steps/` + step.stepState + `.svg`" alt=""></div>
           <div class="text">{{ step.text }}</div>
         </button>
@@ -35,7 +42,7 @@ export default {
         },
         { 
           text: 'Suggestions',
-          stepState: stepsState.features.completed ? 'complete' : (stepsStore.currentStep === 2 ? 'current' : 'forward'),
+          stepState: stepsState.features.completed ? 'complete' : (stepsStore.currentStep === 3 ? 'current' : 'forward'),
         }
       ];
       return steps;
@@ -46,10 +53,20 @@ export default {
       console.log(stepsStore.currentStep);
     };
 
+    const reset = () => {
+      stepsStore.resetAllSteps();
+    };
+
+    const next = () => {
+      stepsStore.updateFeaturesStep([1,2,3]);
+    };
+
     return { 
       steps,
       currentStep: computed(() => stepsStore.currentStep),
-      updateCurrentStep
+      updateCurrentStep,
+      reset,
+      next
     };
   }
 }
@@ -59,19 +76,59 @@ export default {
 
 @import './assets/variables.scss';
 
-#steps-wrapper {
+
+
+.wrapper {
   display: flex;
   justify-content: center;
   background: white;
   width: 100%;
   max-width: 800px;
+  padding: 0 $spacing-md;
+}
+
+#StateButtons {
+  display: flex;
+  justify-content: center;
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  gap: $spacing-sm;
+
+  button {
+    padding: $spacing-sm $spacing-md;
+    border: none;
+    background: rgba($blue, 0.1);
+    cursor: pointer;
+    font-size: $font-size-sm;
+    font-family: $font-family-secondary, 'sans-serif';
+    font-weight: 600;
+    color: $blue;
+    transition: all 0.3s;
+    width: 50%;
+    border-radius: $br-md;
+    border: 2px solid rgba($blue, 0.1);
+
+    &:hover {
+      background: $blue;
+      color: white;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      background: rgba($white, 0.1);
+      border: 2px solid rgba($black, 0.1);
+      color: rgba($black, 0.4);
+    }
+  
+  }
 }
 
 #steps {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $spacing-md;
+  padding: $spacing-md 0;
   background: white;
   gap: $spacing-sm;
   max-width: 400px;
@@ -96,6 +153,14 @@ export default {
       font-size: $font-size-sm;
       text-align: center;
       font-family: $font-family-secondary, 'sans-serif';
+    }
+
+    &.complete .text {
+      color: $green;
+    }
+
+    &.current .text {
+      color: $blue;
     }
   }
 }

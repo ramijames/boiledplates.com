@@ -31,6 +31,7 @@ export const useStepsStore = defineStore({
     updateFeaturesStep(selected) {
       this.stepsState.features.selected = selected;
       this.stepsState.features.completed = true;
+      this.currentStep = 3; // suggestions step
     },
     updateSuggestionsStep(numberOfSuggestions) {
       this.stepsState.suggestions.numberOfSuggestions = numberOfSuggestions;
@@ -43,6 +44,7 @@ export const useStepsStore = defineStore({
       this.stepsState.features.completed = false;
       this.stepsState.suggestions.numberOfSuggestions = 0;
       this.stepsState.suggestions.completed = false;
+      this.currentStep = 1; // platform step
     }
   }
 });

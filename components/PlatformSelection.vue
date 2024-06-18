@@ -72,6 +72,7 @@ export default {
     grid-template-rows: 1fr 1fr;
     max-width: 400px;
     margin: 0 auto;
+    gap: $spacing-sm;
 
     button {
       display: flex;
@@ -83,14 +84,22 @@ export default {
       cursor: pointer;
       background: white;
       border-radius: $br-md;
+      background: rgba($blue, 0.1);
+      color: $blue;
+      font-size: $font-size-sm;
+      font-family: $font-family-secondary, 'sans-serif';
+      font-weight: 600;
+      border: 2px solid rgba($blue, 0.1);
 
       &:hover,
-      &:focus {
-        background: rgba($blue, 0.1);
-      }
-
+      &:focus,
       &:active {
-        background: rgba($blue, 0.5);
+        background: $blue;
+        color: white;
+
+        img {
+          filter: invert(1);
+        }
       }
 
       img {
