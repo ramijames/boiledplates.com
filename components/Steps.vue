@@ -1,12 +1,12 @@
 <template>
-  <section class="wrapper" v-if="currentStep !== 1">
-    <section id="StateButtons">
-      <button class="reset" @click="reset">Reset</button>
-      <button class="next" @click="next" v-if="currentStep !== 3">Next</button>
-    </section>
-  </section>
   <section class="wrapper">
-    <section id="steps">
+    <transition name="collapse" v-if="currentStep !== 1">
+      <section id="StateButtons">
+        <button class="reset" @click="reset">Reset</button>
+        <button class="next" @click="next" v-if="currentStep !== 3">Next</button>
+      </section>
+    </transition>
+    <section id="Steps">
       <template v-for="(step, index) in steps">
         <!-- <button class="single-step" :class="{ active: currentStep === index + 1 }" @click="updateCurrentStep(index + 1)"> -->
         <button class="single-step" :class="{ active: currentStep === index + 1, [step.stepState]: true  }">
@@ -76,27 +76,37 @@ export default {
 
 @import './assets/variables.scss';
 
-
+.collapse-enter-active, .collapse-leave-active {
+  transition: height 0.14s;
+  overflow: hidden;
+  background: white;
+}
+.collapse-enter-to, .collapse-leave-to {
+  height: 0;
+  overflow: hidden;
+  background: white;
+}
 
 .wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background: white;
   width: 100%;
   max-width: 800px;
   padding: 0 $spacing-md;
+  align-items: center;
 }
 
 #StateButtons {
   display: flex;
   justify-content: center;
-  background: white;
+  align-items: center;
   width: 100%;
   max-width: 400px;
   gap: $spacing-sm;
+  height: 7.5vh;
 
   button {
-    padding: $spacing-sm $spacing-md;
     border: none;
     background: rgba($blue, 0.1);
     cursor: pointer;
@@ -106,6 +116,7 @@ export default {
     color: $blue;
     transition: all 0.3s;
     width: 50%;
+    height: 70%;
     border-radius: $br-md;
     border: 2px solid rgba($blue, 0.1);
 
@@ -124,16 +135,16 @@ export default {
   }
 }
 
-#steps {
+#Steps {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $spacing-md 0;
-  background: white;
+  padding: 0;
   gap: $spacing-sm;
   max-width: 400px;
   width: 100%;
   margin: 0 auto;
+  height: 12.5vh;
 
   .single-step {
     display: flex;
@@ -141,7 +152,6 @@ export default {
     align-items: center;
     background: none;
     border: none;
-    cursor: pointer;
     position: relative;
 
     .icon {

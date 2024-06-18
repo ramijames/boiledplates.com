@@ -27,6 +27,7 @@ export const useStepsStore = defineStore({
     updatePlatformStep(selected) {
       this.stepsState.platform.selected = selected;
       this.stepsState.platform.completed = true;
+      console.log(this.stepsState.platform.selected);
     },
     updateFeaturesStep(selected) {
       this.stepsState.features.selected = selected;

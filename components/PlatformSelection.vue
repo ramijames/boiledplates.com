@@ -57,14 +57,10 @@ export default {
 @import './assets/variables.scss';
 
 #Platforms {
-  
-  background-color: white;
   padding: $spacing-md $spacing-md 0 $spacing-md;
-  border-radius: $br-xl $br-xl 0 0;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  height: 100%;
 
   .button-set {
     display: grid;
@@ -72,7 +68,8 @@ export default {
     grid-template-rows: 1fr 1fr;
     max-width: 400px;
     margin: 0 auto;
-    gap: $spacing-sm;
+    gap: $spacing-xs;
+    height: 100%;
 
     button {
       display: flex;

@@ -18,6 +18,7 @@
   text-align: center;
   padding: $spacing-md;
   width: 100vw;
+  height: 50vh;
 
   h1 {
     color: $white;
