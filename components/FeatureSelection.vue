@@ -88,22 +88,34 @@ export default {
 #FeatureSelection {
   background-color: white;
   border-radius: $br-xl $br-xl 0 0;
-  padding: $spacing-lg $spacing-md;
+  padding: $spacing-lg $spacing-md 0 $spacing-md;
   width: 100%;
   height: 100%;
   min-height: 180px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  overflow-y: auto;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height:20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    bottom: 0;
+  }
 
   .feature-set {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
     gap: $spacing-sm;
     width: 100%;
+    height: 100%;
     max-width: 400px;
+    overflow-y: auto;
+    padding-bottom: 40px;
 
     div {
       display: flex;

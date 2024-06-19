@@ -59,6 +59,7 @@ export default {
 #Platforms {
   padding: $spacing-md $spacing-md 0 $spacing-md;
   width: 100%;
+  height: 100%;
   max-width: 800px;
   margin: 0 auto;
 
